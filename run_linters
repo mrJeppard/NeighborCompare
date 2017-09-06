@@ -1,30 +1,23 @@
 #!/usr/bin/env bash
 
-pylint -rn neighborplot/*.py > lintout
+echo "##########pylint###################" > lintout
+pylint --rcfile .pylintrc -rn neighborplot/*.py >> lintout
 
-echo "###############################" >> lintout
-echo "pycodestle:" >> lintout
+echo "#########pycodestle#########################" >> lintout
 
-pycodestyle --first neighborplot/*.py >> lintout
+pycodestyle neighborplot/*.py >> lintout
 
-
-echo "###############################" >> lintout
-echo "pydocstyle: " >> lintout
-
+echo "#######pydocstyle########################" >> lintout
 pydocstyle neighborplot/*.py >> lintout
 
 echo "#############TESTDIR##################" >> lintout
-pylint -rn neighborplot/tests/*.py > lintout
+# Ignore too many public methods because its a testing class.
+pylint --disable R0904 -rn neighborplot/tests/test_identity.py >> lintout
 
-echo "###############################" >> lintout
-echo "pycodestle:" >> lintout
+echo "############pycodestle###################" >> lintout
+pycodestyle --first neighborplot/tests/test_identity.py >> lintout
 
-pycodestyle --first neighborplot/tests/*.py >> lintout
-
-
-echo "###############################" >> lintout
-echo "pydocstyle: " >> lintout
-
-pydocstyle neighborplot/tests/*.py >> lintout
+echo "##############pydocstyle#################" >> lintout
+pydocstyle neighborplot/tests/test_identity.py >> lintout
 
 vim lintout
