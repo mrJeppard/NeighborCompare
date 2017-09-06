@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+pylint -rn neighborplot/*.py > lintout
+
+echo "###############################" >> lintout
+echo "pycodestle:" >> lintout
+
+pycodestyle --first neighborplot/*.py >> lintout
+
+
+echo "###############################" >> lintout
+echo "pydocstyle: " >> lintout
+
+pydocstyle neighborplot/*.py >> lintout
+
+echo "#############TESTDIR##################" >> lintout
+pylint -rn neighborplot/tests/*.py > lintout
+
+echo "###############################" >> lintout
+echo "pycodestle:" >> lintout
+
+pycodestyle --first neighborplot/tests/*.py >> lintout
+
+
+echo "###############################" >> lintout
+echo "pydocstyle: " >> lintout
+
+pydocstyle neighborplot/tests/*.py >> lintout
+
+vim lintout
