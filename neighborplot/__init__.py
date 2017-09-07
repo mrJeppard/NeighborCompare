@@ -32,7 +32,7 @@ class CompareNeighbors(object):
     def plot(self):
         """Plot the neighborplot visualization."""
         plt.imshow(self.neighbor_overlap_matrix,
-                   cmap='hot',
+                   cmap='seismic',
                    interpolation='nearest',
                    origin='lower'
                    )
