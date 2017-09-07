@@ -53,29 +53,3 @@ class Testings(TestCase):
         comparison = CompareNeighbors(coords, coords, 1, 10)
         comparison.run()
         self.assertTrue(comparison.score() >= 1)
-
-    def test_plot(self):
-        """Plot should be generated without error."""
-        coords = utils.rand_coords()
-        coords1 = utils.rand_coords()
-        comparison = CompareNeighbors(coords, coords1, 1, 10)
-        comparison.run()
-
-        try:
-            comparison.plot()
-            self.assertTrue(True)
-        except Exception as e:
-            self.assertTrue(False, msg=e.message)
-
-    def test_plot_to_pdf(self):
-        """Plot should be generated without error."""
-        coords = utils.rand_coords()
-        coords1 = utils.rand_coords()
-        comparison = CompareNeighbors(coords, coords1, 1, 10)
-        comparison.run()
-
-        try:
-            comparison.plot_to_pdf("./test.pdf")
-            self.assertTrue(True)
-        except Exception as e:
-            self.assertTrue(False, msg=e.message)
