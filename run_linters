@@ -12,7 +12,9 @@ pydocstyle neighborplot/*.py >> lintout
 
 echo "#############TESTDIR##################" >> lintout
 # Ignore too many public methods because its a testing class.
-pylint --disable R0904 -rn neighborplot/tests/test_identity.py >> lintout
+# Ignore catching too general of an exception because not sure what exception
+# might be thrown on failure.
+pylint --disable R0904,W0703 -rn neighborplot/tests/test_identity.py >> lintout
 
 echo "############pycodestle###################" >> lintout
 pycodestyle --first neighborplot/tests/test_identity.py >> lintout
