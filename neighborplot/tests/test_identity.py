@@ -13,7 +13,7 @@ class Testings(TestCase):
         coords = utils.rand_coords()
         comparison = CompareNeighbors(coords, coords, 1, 10)
         comparison.run()
-        self.assertTrue(comparison.score() >= 1)
+        self.assertTrue(comparison.score() <= 1)
 
     def test_flip_identity1(self):
         """Same coords flipped should come up with a comparison score > 1."""
