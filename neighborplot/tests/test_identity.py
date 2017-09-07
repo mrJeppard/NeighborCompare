@@ -16,8 +16,7 @@ class Testings(TestCase):
         self.assertTrue(comparison.score() >= 1)
 
     def test_flip_identity1(self):
-        """Same coords flipped should come up with a comparison score of 1 or
-        greater."""
+        """Same coords flipped should come up with a comparison score > 1."""
         coords = utils.rand_coords()
         coords1 = utils.flip_coords(coords)
         comparison = CompareNeighbors(coords, coords1, 1, 10)
@@ -25,8 +24,7 @@ class Testings(TestCase):
         self.assertTrue(comparison.score() >= 1)
 
     def test_flip_identity2(self):
-        """Same coords flipped should come up with a comparison score of 1 or
-        greater."""
+        """Same coords flipped should come up with a comparison score of > 1."""
         coords = utils.rand_coords()
         coords1 = utils.flip_coords(coords)
         comparison = CompareNeighbors(coords, coords1, 1, 10)
@@ -34,8 +32,7 @@ class Testings(TestCase):
         self.assertTrue(comparison.score() >= 1)
 
     def test_flip_identity3(self):
-        """Same coords flipped should come up with a comparison score of 1 or
-        greater."""
+        """Same coords flipped should come up with a comparison score of > 1."""
         coords = utils.rand_coords()
         coords1 = utils.flip_coords(coords)
         comparison = CompareNeighbors(coords, coords1, 1, 10)
