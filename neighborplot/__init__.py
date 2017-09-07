@@ -24,6 +24,11 @@ class CompareNeighbors(object):
         """Run the computations necessary to make a neighbor plot."""
         self._compute_overlap_matrix()
 
+    def score(self):
+        """Compute the average of all neighbor overlap averages."""
+        return self.neighbor_overlap_matrix.sum().sum() \
+            / (self.max_neighbors - self.min_neighbors) ** 2
+
     def plot(self):
         """Plot the neighborplot visualization."""
         plt.imshow(self.neighbor_overlap_matrix,
