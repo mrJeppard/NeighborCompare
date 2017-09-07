@@ -64,8 +64,8 @@ class Testings(TestCase):
         try:
             comparison.plot()
             self.assertTrue(True)
-        except Exception:
-            self.assertTrue(False)
+        except Exception as e:
+            self.assertTrue(False, msg=e.message)
 
     def test_plot_to_pdf(self):
         """Plot should be generated without error."""
@@ -77,5 +77,5 @@ class Testings(TestCase):
         try:
             comparison.plot_to_pdf("./test.pdf")
             self.assertTrue(True)
-        except Exception:
-            self.assertTrue(False)
+        except Exception as e:
+            self.assertTrue(False, msg=e.message)
