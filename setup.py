@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='neighborplot',
+setup(name='NeighborCompare',
       version='0.1',
       description='A method for comparing and visualizing '
                   'dimensionality reduction algorithm solutions.',
